@@ -11,6 +11,7 @@ import {
 const router = express.Router();
 
 // Routes
+
 router.post('/', uploadPastPaper);
 router.get('/', getAllPastPapers);
 router.get('/recent', getRecentPapers);

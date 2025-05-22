@@ -41,7 +41,8 @@ export const uploadPastPaper = async (req, res) => {
 export const getAllPastPapers = async (req, res) => {
   try {
     const papers = await PastPaper.find().sort({ createdAt: -1 });
-
+    
+    
     res.status(200).json({
       status: 'success',
       results: papers.length,
@@ -60,9 +61,10 @@ export const getAllPastPapers = async (req, res) => {
 // READ ONE
 export const getSinglePastPaper = async (req, res) => {
   try {
+
     const { id } = req.params;
     const paper = await PastPaper.findById(id);
-
+  
     if (!paper) {
       return res.status(404).json({
         status: 'fail',
@@ -74,7 +76,7 @@ export const getSinglePastPaper = async (req, res) => {
       status: 'success',
       data: paper,
     });
-
+  
   } catch (error) {
     console.error('Error fetching past paper:', error);
     res.status(500).json({
