@@ -115,7 +115,7 @@ function Papercontents() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/pastPapers");
+        const res = await axios.get("https://ag-tech-ii-project-x1sa.vercel.app/api/pastPapers");
         console.log("Fetched Data:", res.data);
         setUploads(res.data.data); // Make sure data is an array
       } catch (error) {
