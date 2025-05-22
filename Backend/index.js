@@ -45,10 +45,10 @@ mongoose
     console.error('DB connection error:', err.message);
   });
 
-// // Start server
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+// Start server
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 export default app;
