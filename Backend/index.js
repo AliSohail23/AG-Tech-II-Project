@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://ag-tech-ii-project.vercel.app/'
+      'https://ag-tech-ii-project.vercel.app'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
