@@ -12,7 +12,7 @@ const RecentUploads = () => {
   useEffect(() => {
     const fetchRecentPapers = async () => {
       try {
-        const response = await axios.get("/api/pastPapers/recent?limit=8");
+        const response = await axios.get("https://ag-tech-ii-project-x1sa.vercel.app/api/pastPapers/recent?limit=8");
         const recent = response?.data?.data || [];
         console.log("Recent papers fetched:", response.data);
         setUploads(recent);
