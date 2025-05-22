@@ -85,7 +85,7 @@ const PastPapers = () => {
           <button
             onClick={goToPrevPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+            className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
           >
             Previous
           </button>
@@ -95,7 +95,7 @@ const PastPapers = () => {
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+            className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
           >
             Next
           </button>
