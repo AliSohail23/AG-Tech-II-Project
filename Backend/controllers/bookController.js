@@ -1,35 +1,20 @@
 import bookModel from '../models/Books.js';
-import { uploadToCloudinary } from '../utils/fileUpload.js';
 
 export const uploadBook = async (req, res) => {
   try {
-    const { bookName, authorName, relatedCourseName } = req.body;
-    const file = req.file; // File is now in memory
+    const { bookName, authorName, relatedCourseName, bookUpload, bookThumbnail } = req.body;
 
-    if (!file || !bookName || !authorName || !relatedCourseName) {
+    // Validation: required fields
+    if (!bookName || !authorName || !relatedCourseName || !bookUpload) {
       return res.status(400).json({ message: 'All fields are required!' });
     }
-
-    // Upload the buffer from req.file.buffer to Cloudinary
-    const cloudinaryResult = await uploadToCloudinary(file.buffer, {
-      folder: 'books', // Specify the folder in Cloudinary
-      resource_type: 'auto', // Let Cloudinary detect the resource type
-      public_id: `${Date.now()}-${file.originalname.split('.')[0]}` 
-    });
-
-    // Check if upload was successful
-    if (!cloudinaryResult || !cloudinaryResult.secure_url) {
-       throw new Error('Cloudinary upload failed');
-    }
-
-    const fileUrl = cloudinaryResult.secure_url; // Get the secure URL
 
     const newBook = await bookModel.create({
       bookName,
       authorName,
       relatedCourseName,
-      bookUpload: fileUrl, // Save the Cloudinary URL
-      bookThumbnail: "", // Handle thumbnail separately if needed
+      bookUpload,        // Cloudinary URL from frontend
+      bookThumbnail: bookThumbnail || "", // Optional thumbnail
     });
 
     res.status(201).json({
@@ -45,6 +30,7 @@ export const uploadBook = async (req, res) => {
     });
   }
 };
+
 
 // Get All Books
 export const getAllBooks = async (req, res) => {
