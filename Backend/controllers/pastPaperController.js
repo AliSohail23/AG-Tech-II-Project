@@ -19,7 +19,7 @@ export const uploadPastPaper = async (req, res) => {
       year,
       universityName,
       paperThumbnail,
-      paperUpload,
+      paperUnsolved,
     });
 
     res.status(201).json({
