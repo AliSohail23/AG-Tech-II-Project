@@ -94,7 +94,7 @@ const UploadCards = ({ upload }) => {
         {/* Conditionally display subjectName.title if it's available */}
         <h3
           className={`font-semibold line-clamp-2 
-            ${upload.subjectName === "Programming Fundamentals 17 to 21" || upload.subjectName === "Calculus-II 17 to 21" || upload.subjectName === "Electricity and Magnetism 17 to 21" || upload.subjectName === "Thermodynamics and Kinetic Theory"
+            ${upload.subjectName === "Programming Fundamentals 17 to 21" || upload.subjectName === "Calculus-II 17 to 21" || upload.subjectName === "Electricity and Magnetism 17 to 21" || upload.subjectName === "Thermodynamics and Kinetic Theory" || upload.subjectName === "Fundamentals of Programming"
             ? "text-[5px] sm:text-base"
             : "text-base sm:text-lg"
             }`}
